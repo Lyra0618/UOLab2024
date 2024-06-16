@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS对象</title>
+    <script>
+
+        //看到{}对象
+        //大对象 套了 一个小对象
+        var person = {
+            pname: 'nuc',
+            age : 30,
+            grade : 3,
+            address: {
+                addr: '迎泽区',
+                tel : 188
+            }
+        };
+
+        //第一种写法输出具体值
+        console.log(person.pname);
+        console.log(person.age);
+        console.log(person.grade);
+
+        //第二种写法输出具体值
+        //单双引号无影响
+        console.log(person["pname"]);
+        console.log(person['pname']);
+
+        //对象嵌套获取具体值
+        console.log(person.address.addr);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

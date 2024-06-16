@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS事件-开发重点</title>
+
+    <script>
+        function calc() {
+            a = document.getElementById("first").value;
+            anum = parseInt(a);
+            b = document.getElementById("second").value;
+            bnum = parseInt(b);
+
+            document.getElementById("result").value = anum + bnum;
+
+            return anum + bnum;
+
+        }
+
+        function light() {
+            element=document.getElementById('myimage')
+            if (element.src.match("bulbon"))
+            {
+                element.src="pic_bulboff.gif";
+            }
+            else
+            {
+                element.src="pic_bulbon.gif";
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+
+
+第一个数字: <input  type="text" id="first" ><br>
+第二个数字: <input onblur="alert('500')" type="text" id="second"><br>
+计算结果: <input type="text" id="result" readonly><br>
+
+<button onclick="calc();">计算</button>
+<img id = "myimage" src="pic_bulboff.gif" onclick="light()">
+</body>
+</html>

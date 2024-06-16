@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片隐藏</title>
+    <script>
+        function hide() {
+            var bu = document.getElementById("bulb");
+            //隐藏之后让位置
+            bu.style = "display:none";
+            //隐藏之后不让位置
+            /*bu.style = "visibility:hidden";*/
+        }
+
+        function show() {
+            var bu = document.getElementById("bulb");
+            bu.style = "visibility:visible"
+        }
+
+    </script>
+
+</head>
+<body>
+<img src = "pic_bulbon.gif" id="bulb">
+
+<button onclick="hide()">隐藏</button>
+<button onclick="show()">显示</button>
+
+</body>
+</html>

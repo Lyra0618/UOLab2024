@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+    <script>
+        function checkUser() {
+            var uname = document.getElementById("uname").value;
+            //var reg = /^[0-9]{3,6}$/;  等价于: /^\d{3,6}$/
+
+            //开头必须是字母 后面可以是字母 数字 下划线
+            //前面是一个字符判断  后面是5个字符判断
+            //var reg = /^[a-zA-Z]{1}[a-zA-Z0-9_]{2,5}$/   等价于:/^[a-zA-Z]{1}\w{2,5}$/
+
+
+            //第一个方式:汉字数是2~5
+            //var reg = /^[\u4e00-\u9fa5]{2,5}$/
+
+                //第二种方式 至少出现一次 最多不限
+
+                //var reg = /^[\u4e00-\u9fa5]+$/
+
+                    //第三种：至少出现0次 最多出现次数不限
+                    //var reg = /^[\u4e00-\u9fa5]*$/
+
+                            //第四种: 第一个要么是汉字 要么不是
+                            var reg = /^[\u4e00-\u9fa5]？$/
+
+
+            if (!reg.test(uname)) {
+                //document.getElementById("uname").指的是输入文本框的这个对象
+                document.getElementById("uname").style = "border:1px solid red";
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+<input type="text" id="uname">
+<button onclick="checkUser()">登录</button>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title>表单验证</title>
+
+  <script type="text/javascript">
+
+    function verify(f) {
+
+      var uname = f.uname.value;
+
+      var upwd = f.upwd.value;
+
+      if(uname != "" && upwd != "") {
+
+        if(/[\u4e00-\u9fa5]{2,}/.test(uname)){
+
+          if(/\w{6,}/.test(upwd)){
+
+            alert("您的用户名和密码均符合要求！");
+
+            return true;
+
+          } else {
+
+            alert("您的密码不符合要求！");
+
+            f.upwd.focus();
+
+            f.upwd.select();
+
+            return false;
+
+          }
+
+        } else {
+
+          alert("您的用户名不符合要求！");
+
+          f.uname.focus();
+
+          f.uname.select();
+
+          return false;
+
+        }
+
+      }else{
+
+        alert("您的用户名或密码为空！！");
+
+        return false;
+
+      }
+
+    }
+
+  </script>
+
+</head>
+
+<body>
+
+<form action="" method="" name="myform" onSubmit="return verify(this)">
+
+  <table align="center">
+
+    <tr>
+
+      <td align="right">用户名</td>
+
+      <td><input type="text"name="uname"></td>
+
+    </tr>
+
+    <tr>
+
+      <td align="right">密码</td>
+
+      <td><input type="password" name="upwd"></td>
+
+    </tr>
+
+    <tr>
+
+      <td align="right">性别</td>
+
+      <td>
+
+        <input type="radio" name="sex" value="男" checked>男
+
+        <input type="radio" name="sex" value="女">女
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td align="right">专业方向</td>
+
+      <td>
+
+        <select name="major">
+
+          <option value="软件开发与测试">软件开发与测试</option>
+
+          <option value="信息化与网络安全">信息化与网络安全</option>
+
+          <option value="人工智能软件开发与应用">人工智能软件开发与应用</option>
+
+          <option value="移动互联网软件开发与应用">移动互联网软件开发与应用</option>
+
+          <option value="云计算与大数据分析">云计算与大数据分析</option>
+
+          <option value="物联网与智慧城市应用软件开发">物联网与智慧城市应用软件开发</option>
+
+        </select>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td align="right">爱好</td>
+
+      <td>
+
+        <input type="checkbox" name="hobby" value="唱歌">唱歌
+
+        <input type="checkbox" name="hobby" value="登山">登山
+
+        <input type="checkbox" name="hobby" value="阅读">阅读
+
+        <input type="checkbox" name="hobby" value="篮球">篮球
+
+        <input type="checkbox" name="hobby" value="书法">书法
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td align="right" valign="top" >个人简介</td>
+
+      <td>
+
+        <textarea name="cv" rows="3" cols="40">限100字以内</textarea>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td align="center" colspan="2">
+
+        <input type="submit" value="提交">
+
+        <input type="reset" value="重置">
+
+      </td>
+
+    </tr>
+
+  </table>
+
+</form>
+
+</body>
+
+</html>

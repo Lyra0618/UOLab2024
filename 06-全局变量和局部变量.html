@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局变量和局部变量</title>
+
+   <!--避免 局部变量 和 全局变量 同名的情况-->
+  <script>
+    //全局变量
+    grade = 3;
+
+    function calc() {
+      grade = 900; //全局变量
+
+      //一旦给变量加上 var 该变量就变成局部变量了
+      level = 5;
+
+      age = 19; //全局变量
+    }
+
+    //输出全局变量的值
+    calc();
+    console.log(grade);
+
+    console.log(level);
+  </script>
+</head>
+<body>
+
+</body>
+</html>

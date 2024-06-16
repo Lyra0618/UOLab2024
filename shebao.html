@@ -19,6 +19,64 @@
   <!--  网页小图标的标志-->
   <link rel="shortcut icon" href="imgs/logo.ico">
 
+  <script>
+    function verify() {
+        var sal = document.getElementById("salary").value;
+
+        var reg = /^[0-9]{4,5}$/;
+
+      if (!reg.test(sal)) {
+        /*alert("工资要求是4~5位的数字字符！");*/
+        //document.getElementById("salary").innerText="工资要求是4~5位的数字字符！"; 这种写法是错误的 innerText只适用于 没有文本框 比如p标签 div标签 单元格等需要写入数据时才使用
+        //对于有输入框的一律使用value
+        document.getElementById("salary").value="工资要求是4~5位的数字字符！";
+        document.getElementById("salary").style = "border:1px solid red;color:red";
+        return false;
+      }
+
+      salnum = parseInt(sal);
+      ylgr = salnum * 0.08;
+      ylgs = salnum * 0.2;
+
+      document.getElementById("ylgr").innerText = ylgr;
+      document.getElementById("ylgs").innerText = ylgs;
+
+
+      salnum = parseInt(sal);
+      gryl = salnum * 0.02;
+      gsyl = salnum * 0.06;
+
+      document.getElementById("gryl").innerText = gryl;
+      document.getElementById("gsyl").innerText = gsyl;
+
+      salnum = parseInt(sal);
+      grsy = salnum * 0.005;
+      gssy = salnum * 0.015;
+
+      document.getElementById("grsy").innerText = grsy;
+      document.getElementById("gssy").innerText = gssy;
+
+      salnum = parseInt(sal);
+      sygr = salnum * 0.12;
+      sygs = salnum * 0.12;
+
+      document.getElementById("sygr").innerText = sygr;
+      document.getElementById("sygs").innerText = sygs;
+
+      grhj = ylgr+gryl+grsy+sygr;
+      gshj = ylgs+gssy+sygs+gsyl;
+
+      document.getElementById("grhj").innerText=grhj;
+      document.getElementById("gshj").innerText=gshj;
+
+      ze=salnum+gshj;
+      document.getElementById("ze").innerText=ze;
+
+    }
+
+
+  </script>
+
 </head>
 <body>
 
@@ -30,10 +88,11 @@
       <tr>
         <td>工资</td>
         <td colspan="3">
-          <input type="text" class="form-control" placeholder="请输入">
+          <input onfocus="this.value='';this.style='color:black'" id="salary" type="text" class="form-control" placeholder="请输入">
+
         </td>
         <td>
-          <button class="btn btn-danger btn-block">计算</button>
+          <button class="btn btn-danger btn-block" onclick="verify()">计算</button>
         </td>
 
       </tr>
@@ -49,26 +108,26 @@
     <tr>
       <td>养老</td>
       <td>8%</td>
-      <td></td>
+      <td id="ylgr"></td>
       <td>20%</td>
-      <td></td>
+      <td id="ylgs"></td>
     </tr>
 
 
       <tr>
         <td>医疗</td>
         <td>2%</td>
-        <td></td>
+        <td id="gryl"></td>
         <td>6%</td>
-        <td></td>
+        <td id="gsyl"></td>
       </tr>
 
       <tr>
         <td>失业</td>
         <td>0.5%</td>
-        <td></td>
+        <td id="grsy"></td>
         <td>1.5%</td>
-        <td></td>
+        <td id="gssy"></td>
       </tr>
 
       <tr>
@@ -76,14 +135,6 @@
         <td></td>
         <td></td>
         <td>0.5%</td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td>生育</td>
-        <td></td>
-        <td></td>
-        <td>0.8%</td>
         <td></td>
       </tr>
 
@@ -98,23 +149,23 @@
       <tr>
         <td>生育</td>
         <td>12%</td>
-        <td></td>
+        <td id="sygr"></td>
         <td>12%</td>
-        <td></td>
+        <td id="sygs"></td>
       </tr>
 
       <tr>
         <td>合计</td>
         <td>个人合计</td>
-        <td></td>
+        <td id="grhj"></td>
         <td>公司合计</td>
-        <td></td>
+        <td id="gshj"></td>
       </tr>
 
 
       <tr>
         <td>总额</td>
-        <td colspan="4" style="color: red; font-weight: bold"></td>
+        <td colspan="4" style="color: red; font-weight: bold" id="ze"></td>
       </tr>
     </table>
 

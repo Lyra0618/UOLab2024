@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+  <script>
+    function checkUser() {
+      var flag = false;
+      //注意这里是value
+      var uname = document.getElementById("uname").value;
+      var upsw = document.getElementById("upsw").value;
+
+
+      //这里的null一般不会出现 因为你要进行表单验证 要么用户名不输入 要么就是输入正确进行下一步的表单验证  只有输错用户名/密码 才返回null  但这种情况很少发生
+
+      if (uname == "" || uname == null) {
+
+        document.getElementById("unametips").innerText = "用户名不能为空！";
+        document.getElementById("unametips").style = "color:red";
+        flag = false;
+      }else {
+        flag = true;
+      }
+
+      if (upsw == "" || upsw == null) {
+
+        document.getElementById("upsw").style = "border:1px solid red";
+
+        flag =  false;
+      }else {
+        flag = true;
+      }
+
+      return flag;
+
+    }
+
+  </script>
+
+</head>
+<body>
+
+<form action="01-第一个JS程序.html" method="post" onsubmit="return checkUser()">
+
+  用户名:<input type="text" id="uname" placeholder="请输入用户名"><span id="unametips"></span>
+
+  <br>
+  密码:<input type="password" id="upsw" placeholder="请输入密码"><span id="upswtips"></span>
+
+  <br>
+  <input type="submit" value="登录">
+
+
+</form>
+</body>
+</html>
